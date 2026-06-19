@@ -4,6 +4,7 @@ import asyncio
 import edge_tts
 import pygame
 import os
+import webbrowser
 
 # Initialize recognizer
 
@@ -153,6 +154,98 @@ while True:
             speak("Opening File Explorer")
 
             os.system("explorer")
+
+#SEARCHING ON YOUTUBE
+        elif "search" in command and "youtube" in command:
+
+            query = command
+
+            query = query.replace("search", "")
+            query = query.replace("youtube", "")
+            query = query.replace("you tube", "")
+            query = query.replace("on", "")
+            query = query.replace("for", "")
+
+            query = query.strip()
+
+            speak(f"Searching YouTube for {query}")
+
+            webbrowser.open(
+                f"https://www.youtube.com/results?search_query={query}"
+            )
+
+#OPENING WEBSITES
+        elif "open youtube" in command or "youtube" in command or "open you tube" in command or "you tube" in command or "u tube" in command:
+
+            speak("Opening YouTube")
+
+            webbrowser.open("https://www.youtube.com")
+
+
+        elif "open facebook" in command or "facebook" in command or "open fb" in command or "fb" in command or "open face book" in command or "face book" in command:
+
+            speak("Opening Facebook")
+
+            webbrowser.open("https://www.facebook.com")
+
+        elif "open twitter" in command or "twitter" in command:
+
+            speak("Opening Twitter")
+
+            webbrowser.open("https://www.twitter.com")
+
+        elif "open instagram" in command or "instagram" in command or "open insta" in command or "insta" in command:
+
+            speak("Opening Instagram")
+
+            webbrowser.open("https://www.instagram.com")
+
+        elif "open linkedin" in command or "linkedin" in command or "open linked" in command or "linked" in command or "open linked in" in command or "linked in" in command:
+
+            speak("Opening LinkedIn")
+
+            webbrowser.open("https://www.linkedin.com")
+
+        elif "open github" in command or "github" in command or "open git hub" in command or "git hub" in command:
+
+            speak("Opening GitHub")
+
+            webbrowser.open("https://www.github.com")
+
+        elif "open gmail" in command or "gmail" in command or "open mail" in command or "mail" in command or "open google mail" in command or "google mail" in command or "g mail" in command or "g mall" in command:
+
+            speak("Opening Gmail")
+
+            webbrowser.open("https://mail.google.com")
+
+        elif "open chat g p t" in command or "open chatgpt" in command:
+
+            speak("Opening ChatGPT")
+
+            webbrowser.open("https://chatgpt.com")
+
+#SEARCHING ON GOOGLE
+        elif "search" in command:
+
+            search_query = command.replace("search", "").strip()
+
+            speak(f"Searching for {search_query}")
+
+            webbrowser.open(
+                f"https://www.google.com/search?q={search_query}"
+            )
+
+
+#SEARCHING ON WIKIPEDIA
+        elif "wikipedia" in command:
+
+            search_query = command.replace("wikipedia", "").strip()
+
+            speak(f"Searching for {search_query} on Wikipedia")
+
+            webbrowser.open(
+                f"https://en.wikipedia.org/wiki/{search_query}"
+            )
 
 
         # DEFAULT RESPONSE
